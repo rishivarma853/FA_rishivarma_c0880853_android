@@ -12,7 +12,16 @@
         android:theme="@style/Theme.FA_rishivarma_c0880853_android"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ProductUpdatePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductDisplayPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductEntryPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomePageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

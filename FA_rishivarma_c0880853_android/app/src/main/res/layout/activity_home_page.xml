@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lbl_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Products"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lbl_message"/>
+
+    <TextView
+        android:id="@+id/lbl_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Products are available"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/lbl_heading"
+        app:layout_constraintBottom_toTopOf="@id/list_products"/>
+
+    <ListView
+        android:id="@+id/list_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/list_item_layout"
+        app:layout_constraintTop_toBottomOf="@id/lbl_message"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_new_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="20dp"
+        android:layout_margin="12dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
