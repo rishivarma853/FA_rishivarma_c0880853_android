@@ -1,13 +1,13 @@
 package ca.lcit22f.rishivarma853.android.fa_rishivarma_c0880853_android;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ProductDisplayPageActivity extends AppCompatActivity {
 
@@ -47,10 +47,11 @@ public class ProductDisplayPageActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Product product = database.getProduct(id);
-        inputID.setText(product.getID());
+        System.out.println(product);
+        inputID.setText(String.valueOf(product.getID()));
         inputName.setText(product.getName());
         inputDescription.setText(product.getDescription());
-        inputPrice.setText(product.getPrice());
+        inputPrice.setText(String.valueOf(product.getPrice()));
     }
 
 }

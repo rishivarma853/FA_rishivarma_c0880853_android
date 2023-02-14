@@ -5,8 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -61,9 +61,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     Product getProduct(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_PRODUCTS, new String[] { PRODUCT_ID,
-                        PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_PRICE }, PRODUCT_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+        Cursor cursor = db.query(TABLE_PRODUCTS, new String[]{PRODUCT_ID,
+                        PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_PRICE}, PRODUCT_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
@@ -109,14 +109,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         // updating row
         return db.update(TABLE_PRODUCTS, values, PRODUCT_ID + " = ?",
-                new String[] { String.valueOf(product.getID()) });
+                new String[]{String.valueOf(product.getID())});
     }
 
     // Deleting single product
     public void deleteProduct(Product product) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_PRODUCTS, PRODUCT_ID + " = ?",
-                new String[] { String.valueOf(product.getID()) });
+                new String[]{String.valueOf(product.getID())});
         db.close();
     }
 

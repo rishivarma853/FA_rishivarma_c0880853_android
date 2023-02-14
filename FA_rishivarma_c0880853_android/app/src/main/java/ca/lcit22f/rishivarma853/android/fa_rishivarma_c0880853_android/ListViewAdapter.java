@@ -10,20 +10,20 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
-    private Context context; //context
-    private ArrayList<Product> productsArrayList; //data source of the list adapter
+    private final Context context; //context
+    private final ArrayList<Product> productsArrayList; //data source of the list adapter
 
     //public constructor
     public ListViewAdapter(Context context, ArrayList<Product> products) {
         this.context = context;
-        this.productsArrayList = new ArrayList<>(products);
+        this.productsArrayList = products;
     }
 
     public int getCount() {
         return productsArrayList.size(); //returns total of items in the list
     }
 
-    public Object getItem(int position) {
+    public Product getItem(int position) {
         return productsArrayList.get(position); //returns list item at the specified position
     }
 
@@ -42,10 +42,8 @@ public class ListViewAdapter extends BaseAdapter {
         Product currentProduct = productsArrayList.get(position);
 
         // get the TextView for item name and item description
-        TextView labelProductName = (TextView)
-                convertView.findViewById(R.id.lbl_product_name);
-        TextView labelProductDescription = (TextView)
-                convertView.findViewById(R.id.lbl_product_description);
+        TextView labelProductName = convertView.findViewById(R.id.lbl_product_name);
+        TextView labelProductDescription = convertView.findViewById(R.id.lbl_product_description);
 
         //sets the text for item name and item description from the current item object
         labelProductName.setText(currentProduct.getName());

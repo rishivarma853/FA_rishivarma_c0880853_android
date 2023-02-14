@@ -1,14 +1,13 @@
 package ca.lcit22f.rishivarma853.android.fa_rishivarma_c0880853_android;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ProductEntryPageActivity extends AppCompatActivity {
 
@@ -32,7 +31,7 @@ public class ProductEntryPageActivity extends AppCompatActivity {
         inputDescription = findViewById(R.id.inp_description);
         inputPrice = findViewById(R.id.inp_price);
         database = new DatabaseHandler(ProductEntryPageActivity.this);
-        id = ((database.getProductsCount())+1);
+        id = ((database.getProductsCount()) + 1);
         inputID.setFocusable(View.FOCUSABLE);
         inputID.setClickable(true);
         inputID.setCursorVisible(true);
@@ -47,21 +46,21 @@ public class ProductEntryPageActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(view -> {
             boolean valid = true;
             String name = inputName.getText().toString();
-            if(name.equals("")) {
+            if (name.equals("")) {
                 valid = false;
                 inputName.setError("Name Field is Empty");
             }
             String description = inputDescription.getText().toString();
-            if(description.equals("")) {
+            if (description.equals("")) {
                 valid = false;
                 inputName.setError("Description Field is Empty");
             }
             String priceString = inputPrice.getText().toString();
-            if(priceString.equals("")) {
+            if (priceString.equals("")) {
                 valid = false;
                 inputName.setError("Name Field is Empty");
             }
-            if(valid) {
+            if (valid) {
                 int price = Integer.parseInt(priceString);
                 Product product = new Product(id, name, description, price);
                 database.addProduct(product);
